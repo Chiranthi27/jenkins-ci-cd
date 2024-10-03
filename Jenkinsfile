@@ -1,21 +1,21 @@
-pipeline {
+emailext attachLog: true, body: '''pipeline {
     agent any
 
     stages {
-        stage('Checkout SCM') {
+        stage(\'Checkout SCM\') {
             steps {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage(\'Build\') {
             steps {
-                echo 'Building the codes...'
+                echo \'Building the codes...\'
                 // Add your build commands here
             }
         }
-        stage('Unit and Integration Tests') {
+        stage(\'Unit and Integration Tests\') {
             steps {
-                echo 'Running unit and integration tests...'
+                echo \'Running unit and integration tests...\'
                 // Add your testing commands here
             }
             post {
@@ -37,15 +37,15 @@ pipeline {
                 }
             }
         }
-        stage('Code Analysis') {
+        stage(\'Code Analysis\') {
             steps {
-                echo 'Analyzing code...'
+                echo \'Analyzing code...\'
                 // Add your code analysis commands here
             }
         }
-        stage('Security Scan') {
+        stage(\'Security Scan\') {
             steps {
-                echo 'Performing security scan...'
+                echo \'Performing security scan...\'
                 // Add your security scan commands here
             }
             post {
@@ -67,25 +67,25 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Staging') {
+        stage(\'Deploy to Staging\') {
             steps {
-                echo 'Deploying to staging...'
+                echo \'Deploying to staging...\'
                 // Add your deployment commands here
             }
         }
-        stage('Integration Tests on Staging') {
+        stage(\'Integration Tests on Staging\') {
             steps {
-                echo 'Running integration tests on staging...'
+                echo \'Running integration tests on staging...\'
                 // Add your integration testing commands here
             }
         }
-        stage('Deploy to Production') {
+        stage(\'Deploy to Production\') {
             steps {
-                echo 'Deploying to production...'
+                echo \'Deploying to production...\'
                 // Add your production deployment commands here
             }
         }
     }
 
    
-}
+}''', subject: '', to: 'chiranthichandeepa@gmail.com'
